@@ -1,0 +1,20 @@
+link w instruckji mega wazny (podpunkt 23 bodajze), chyba dwa projekty trzeba zrobic
+
+1-WPF
+2-Windows forms Control Library
+
+(2)COM media player dodac
+
+odpalamy dodatkowy projekt (media player)
+choose toolboc items - zaznaczyc windows media player 
+View - toolbox (sprawdzic to wyzej mozna)
+Przeciagamy na ekran ten media playera
+Dock - Fill
+magincze .dll (cztery) i kopiujemy je do zadania 7. 
+Zadanie 7 (glowny projekt) ustawiamy jako main project czy cos takiego
+<Grid x:Name="Grid" ... W kodzie ustaiwmay to z instrukcji
+dodac do loaded (?)
+dodac dwie referencje (Forms integration, Windows forms
+borwse i dodajmey dll (wygenerowane cztery)
+
+
