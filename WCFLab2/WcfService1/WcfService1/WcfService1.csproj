@@ -41,10 +41,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IZadanie5">
+    <Reference Include="IZadanie5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\IZadanie5.dll</HintPath>
     </Reference>
-    <Reference Include="IZadanie6">
+    <Reference Include="IZadanie6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\IZadanie6.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -106,7 +108,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56532</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56532/</IISUrl>
+          <IISUrl>http://localhost:56531/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:56531/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
