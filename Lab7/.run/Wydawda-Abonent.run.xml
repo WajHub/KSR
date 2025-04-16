@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Wydawda-Abonent" type="CompoundRunConfigurationType">
+    <toRun name="Abonent1" type="DotNetProject" />
+    <toRun name="Abonent2" type="DotNetProject" />
+    <toRun name="Wydawca" type="DotNetProject" />
+    <method v="2" />
+  </configuration>
+</component>

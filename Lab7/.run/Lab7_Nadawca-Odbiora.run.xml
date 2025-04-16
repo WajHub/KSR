@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lab7_Nadawca-Odbiora" type="CompoundRunConfigurationType">
+    <toRun name="Nadawca" type="DotNetProject" />
+    <toRun name="Odbiorca" type="DotNetProject" />
+    <toRun name="Odbiorca2" type="DotNetProject" />
+    <method v="2" />
+  </configuration>
+</component>
