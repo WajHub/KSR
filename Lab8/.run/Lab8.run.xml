@@ -1,6 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Lab8" type="CompoundRunConfigurationType">
-    <toRun name="Odbiorca" type="DotNetProject" />
+    <toRun name="Odbiorca-A" type="DotNetProject" />
+    <toRun name="Odbiorca-B" type="DotNetProject" />
+    <toRun name="Odbiorca-C" type="DotNetProject" />
     <toRun name="Wydawca" type="DotNetProject" />
     <method v="2" />
   </configuration>
