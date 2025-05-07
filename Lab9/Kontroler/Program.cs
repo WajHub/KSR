@@ -24,20 +24,22 @@ while (!exit)
     else if (key == ConsoleKey.S)
     {
         ConsoleCol.WriteLine("Kontroler wysyła instrukcje 's'", ConsoleColor.DarkYellow);
-        IPolecenie polecenie = new Polecenie()
+        var tsk = bus.GetSendEndpoint(new Uri("rabbitmq://localhost/recvqueue-wydawca"));
+        tsk.Wait(); var sendEp = tsk.Result;
+        await sendEp.Send<Komunikaty.IPolecenie>(new Polecenie()
         {
             instrukcja = "s"
-        };
-        await bus.Publish<IPolecenie>(polecenie);
+        });
     }
     else if (key == ConsoleKey.T)
     {
         ConsoleCol.WriteLine("Kontroler wysyła instrukcje 't'", ConsoleColor.DarkYellow);
-        IPolecenie polecenie = new Polecenie()
+        var tsk = bus.GetSendEndpoint(new Uri("rabbitmq://localhost/recvqueue-wydawca"));
+        tsk.Wait(); var sendEp = tsk.Result;
+        await sendEp.Send<Komunikaty.IPolecenie>(new Polecenie()
         {
             instrukcja = "t"
-        };
-        await bus.Publish<IPolecenie>(polecenie);
+        });
     }
 }
 

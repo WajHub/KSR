@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komunikaty", "Komunikaty\Ko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kontroler", "Kontroler\Kontroler.csproj", "{88C64976-06E6-438E-BCC8-7BCD9EF6D09F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abonent-A", "Abonent-A\Abonent-A.csproj", "{8860EE04-2E01-49E1-AF70-91D40EB36896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abonent-B", "Abonent-B\Abonent-B.csproj", "{BF925830-A24D-47B9-AC7D-5EF9BBDBA4D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{88C64976-06E6-438E-BCC8-7BCD9EF6D09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C64976-06E6-438E-BCC8-7BCD9EF6D09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88C64976-06E6-438E-BCC8-7BCD9EF6D09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8860EE04-2E01-49E1-AF70-91D40EB36896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8860EE04-2E01-49E1-AF70-91D40EB36896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8860EE04-2E01-49E1-AF70-91D40EB36896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8860EE04-2E01-49E1-AF70-91D40EB36896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF925830-A24D-47B9-AC7D-5EF9BBDBA4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF925830-A24D-47B9-AC7D-5EF9BBDBA4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF925830-A24D-47B9-AC7D-5EF9BBDBA4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF925830-A24D-47B9-AC7D-5EF9BBDBA4D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
