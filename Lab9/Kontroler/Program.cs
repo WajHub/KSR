@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using MassTransit.Serialization;
 using utils;
 using Komunikaty;
 
@@ -21,25 +22,17 @@ while (!exit)
 {
     var key = Console.ReadKey().Key;
     if (key == ConsoleKey.Q) exit = true;
-    else if (key == ConsoleKey.S)
+    else
     {
-        ConsoleCol.WriteLine("Kontroler wysyła instrukcje 's'", ConsoleColor.DarkYellow);
-        var tsk = bus.GetSendEndpoint(new Uri("rabbitmq://localhost/recvqueue-wydawca"));
+        string instrukcja = (key == ConsoleKey.S ? "s" : "t");
+        ConsoleCol.WriteLine($"Kontroler wysyła instrukcje {instrukcja}", ConsoleColor.DarkYellow);
+        var tsk = bus.GetSendEndpoint(new Uri("rabbitmq://localhost/recvqueue-instructions-wydawca"));
         tsk.Wait(); var sendEp = tsk.Result;
         await sendEp.Send<Komunikaty.IPolecenie>(new Polecenie()
         {
-            instrukcja = "s"
+            instrukcja = instrukcja
         });
-    }
-    else if (key == ConsoleKey.T)
-    {
-        ConsoleCol.WriteLine("Kontroler wysyła instrukcje 't'", ConsoleColor.DarkYellow);
-        var tsk = bus.GetSendEndpoint(new Uri("rabbitmq://localhost/recvqueue-wydawca"));
-        tsk.Wait(); var sendEp = tsk.Result;
-        await sendEp.Send<Komunikaty.IPolecenie>(new Polecenie()
-        {
-            instrukcja = "t"
-        });
+
     }
 }
 

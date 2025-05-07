@@ -15,6 +15,12 @@ var bus = Bus.Factory.CreateUsingRabbitMq(sbc => {
         {
             ep.Handler<Komunikaty.IPubl>(Handle);
         });
+    sbc.ReceiveEndpoint("recvqueue-abonent-B_error",
+        ep =>
+        {
+            ep.Handler<Fault<Komunikaty.IOdp>>(HandleFault);
+        }
+    );
 });
 
 await bus.StartAsync();
@@ -32,14 +38,24 @@ static Task Handle(ConsumeContext<Komunikaty.IPubl> ctx)
     return Task.Run(() =>
     {
         ConsoleCol.WriteLine(
-            $"[Abonent-B] - odebrano wiadomość: {ctx.Message.Tekst1} {ctx.Message.number}", ConsoleColor.DarkBlue);
+            $"[A-B] - odebrano wiadomość: {ctx.Message.Tekst1} {ctx.Message.number}", ConsoleColor.DarkBlue);
         if (ctx.Message.number % 3 == 0)
         {
+            ConsoleCol.WriteLine($"[A-A] - Wysyłam odpowiedz do W", ConsoleColor.DarkBlue);
             ctx.RespondAsync<Komunikaty.IOdpB>(new OdpB()
             {
                 kto = "A - B"
             });
         }
 
+    });
+}
+
+static Task HandleFault(ConsumeContext<Fault<Komunikaty.IOdp>> ctx)
+{
+    return Task.Run(() =>
+    {
+        foreach (var e in ctx.Message.Exceptions) 
+            ConsoleCol.WriteLine($"[A-B] - błąd od: {ctx.Message} ", ConsoleColor.Red);
     });
 }

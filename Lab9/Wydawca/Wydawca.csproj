@@ -9,11 +9,13 @@
 
     <ItemGroup>
       <PackageReference Include="MassTransit" Version="8.4.0" />
+      <PackageReference Include="MassTransit.Newtonsoft" Version="8.4.0" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.0" />
       <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AesCrypto\AesCrypto.csproj" />
       <ProjectReference Include="..\ConsoleCol\ConsoleCol.csproj" />
       <ProjectReference Include="..\Komunikaty\Komunikaty.csproj" />
     </ItemGroup>
