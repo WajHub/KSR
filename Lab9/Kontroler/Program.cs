@@ -10,6 +10,8 @@ var bus = Bus.Factory.CreateUsingRabbitMq(sbc => {
             h.Password("guest"); 
         }
     );
+    sbc.UseEncryptedSerializer(new AesCryptoStreamProvider(
+        new SymmetricKeyProvider("19351119351119351119351119351119"), "1935111935111935"));
 });
 await bus.StartAsync();
 
@@ -31,6 +33,9 @@ while (!exit)
         await sendEp.Send<Komunikaty.IPolecenie>(new Polecenie()
         {
             instrukcja = instrukcja
+        },ctx =>
+        {
+            ctx.Headers.Set(EncryptedMessageSerializer.EncryptionKeyHeader, Guid.NewGuid().ToString());
         });
 
     }

@@ -36,7 +36,7 @@ class Wydawca
             sbc.ReceiveEndpoint("recvqueue-wydawca",
                 ep =>
                 {
-                    ep.UseMessageRetry(r => { r.Immediate(5); });
+                    ep.UseMessageRetry(r => { r.Immediate(3); });
                     ep.Handler<Komunikaty.IOdp>(HandleResponse);
                 });
         });
@@ -49,6 +49,8 @@ class Wydawca
                     h.Password("guest"); 
                 }
             );
+            sbc.UseEncryptedSerializer(new AesCryptoStreamProvider(
+                new SymmetricKeyProvider("19351119351119351119351119351119"), "1935111935111935"));
             sbc.ReceiveEndpoint("recvqueue-instructions-wydawca",
                 ep =>
                 {
@@ -117,6 +119,7 @@ class Wydawca
         
         static Task HandleResponse(ConsumeContext<Komunikaty.IOdp> ctx)
         {
+            Random r = new Random();
             return Task.Run(() =>
             {
                 ConsoleCol.WriteLine($"[W] - odebrano odpowiedz od: {ctx.Message.kto} ", ConsoleColor.Cyan);
@@ -124,10 +127,8 @@ class Wydawca
                 if (ctx.Message.kto == "A - A") _statistisc_attempts["type-a"]++;
                 else if (ctx.Message.kto == "A - B") _statistisc_attempts["type-b"]++;
                 
-                
-                Random r = new Random();
                 int rInt = r.Next(0, 100);
-                if (rInt < 30) throw new Exception();
+                if (rInt < 60) throw new Exception();
                 
                 if (ctx.Message.kto == "A - A") _statistisc_success["type-a"]++;
                 else if (ctx.Message.kto == "A - B") _statistisc_success["type-b"]++;
